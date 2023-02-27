@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css?v=1234"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- <link href="style.css" rel="stylesheet"> -->
+    <style>
+      *,
+      *:before,
+      *:after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #ffffff;
+      }
+
+      .background {
+        width: 430px;
+        height: 520px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        backdrop-filter: blur(8px);
+      }
+p{
+  color:red;
+  font-size: 18px;
+}
+      /* .background .shape{
+ height: 200px;
+ width: 200px;
+ position: absolute;
+ border-radius: 50%;
+}
+.shape:first-child{
+ background: linear-gradient(
+     #B49724,
+     #d3b53f
+ );
+ left: -230px;
+ top: -100px;
+}
+.shape:last-child{
+ background: linear-gradient(
+     to right,
+     #B49724,
+     #d3b53f
+ );
+ right: -250px;
+ bottom: -80px;
+} */
+
+      form {
+        height: 700px;
+        width: 800px;
+        background-color: #ffffff;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        border-radius: 10px;
+        /* backdrop-filter: blur(0px); */
+        /* border: 2px solid rgba(255, 255, 255, 0.1); */
+        box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+        padding: 50px 5px;
+      }
+
+      #result {
+        font-size: 22px;
+      }
+      .question-mark {
+        width: 22px;
+        height: 24px;
+        border: 2px solid white;
+        background-color: #727272;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .question-mark:before {
+        content: " ? ";
+        font-size: 15px;
+        font-weight: 1000;
+        color: #ffffff;
+      }
+
+      a {
+        text-decoration: none;
+        color: #727272;
+        /* margin-right: -50px !important; */
+        padding-bottom: -150px !important;
+      }
+
+      form * {
+        font-family: "Poppins", sans-serif;
+        color: #727272;
+        letter-spacing: 0.7px;
+        outline: none;
+        border: none;
+      }
+
+      form h3 {
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 42px;
+        text-align: center;
+      }
+
+      label {
+        display: block;
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: 300;
+
+        /* margin: auto; */
+      }
+      select {
+        display: block;
+        height: 45px;
+        min-width: 40%;
+        max-width: 100%;
+        background-color: rgba(255, 255, 255, 0.07);
+        border: 1px solid #efeff1;
+        border-radius: 5px;
+        padding: 4px 0px;
+        /* margin-top: 10px; */
+        font-size: 16px;
+        font-weight: 300;
+        text-align: center;
+        color: #727272;
+      }
+      input {
+        display: block;
+        height: 45px;
+        min-width: 60%;
+        max-width: 100%;
+        background-color: rgba(255, 255, 255, 0.07);
+        border-left: 1px solid #efeff1;
+        border-right: 1px solid #efeff1;
+        border-top: none;
+        border-bottom: none;
+        border-radius: 5px;
+        padding: 0 10px;
+        margin-top: 4px;
+        font-size: 16px;
+        font-weight: 300;
+        text-align: center;
+      }
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      /* #af9951 */
+      /* 
+::placeholder{
+ color: #e5e5e5;
+} */
+      .css-ebv3qm .tooltip-button {
+        padding-left: 20px;
+        margin: 0;
+        border: 0;
+        background: 0;
+        margin-bottom: -0.05rem;
+        cursor: pointer;
+        vertical-align: center;
+      }
+      .css-1gynhvj .input-group .tooltip-button {
+        font-size: 0.8rem;
+      }
+      .css-ebv3qm .tooltip-button {
+        padding: 0px;
+        margin: 0px 0px -0.05rem;
+        border: 0px;
+        background: 0px center;
+        cursor: pointer;
+        color: #b08e21;
+      }
+      svg:not(:root).svg-inline--fa,
+      svg:not(:host).svg-inline--fa {
+        overflow: visible;
+        box-sizing: content-box;
+      }
+
+      .svg-inline--fa {
+        display: var(--fa-display, inline-block);
+        height: 1em;
+        overflow: visible;
+        vertical-align: -0.125em;
+      }
+
+      #display1 {
+        display: none;
+      }
+
+      .css-ebv3qm span {
+        background-color: #2d2d2d;
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 500;
+        height: 55px;
+        padding-top: 5px !important;
+        border-radius: 2px;
+        letter-spacing: 1px;
+        line-height: 15px;
+        position: absolute;
+        text-align: center;
+        /* text-transform: uppercase; */
+        top: 145px;
+        left: 226px;
+        z-index: 3;
+        display: none;
+        padding: 0 20px;
+      }
+
+      .blip {
+        display: none;
+      }
+
+      .pp1 span {
+        top: 270px;
+        left: 285px;
+        display: none;
+        height: 55px;
+      }
+
+      .pp2 span {
+        top: 380px;
+        left: 215px;
+        display: none;
+        height: 55px;
+      }
+
+      #link:hover {
+        color: #f47214 !important;
+      }
+
+      .disclaimer {
+        position: absolute;
+        margin-top: -32px ;
+        margin-left: 220px ;
+  
+      }
+      .input-labels {
+        display: flex;
+        flex-direction: row;
+        min-width: 100%;
+        margin: 0px 30px;
+      }
+
+      .input-group {
+        min-width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0px;
+      }
+
+      .input-group label {
+        min-width: 40%;
+        display: flex;
+        flex-direction: row;
+        font-size: 15px;
+        font-weight: 500;
+        /* align-items: center; */
+      }
+
+      input:first-child {
+        width: 100% !important;
+      }
+
+      @media all and (max-width: 3700px) and (min-width: 822px) {
+        #container {
+          padding: 0px 30px;
+          margin-top: 12px !important;
+          margin-top: calc(-1px - 100px);
+        }
+      }
+
+      #container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        width: 800px;
+        padding: 2px 30px;
+      }
+      .left {
+        align-self: flex-start;
+        max-width: 100%;
+      }
+      .logo {
+        height: 100px;
+        width: 170px;
+      }
+      .right {
+        margin-left: auto;
+        position: relative;
+        top: -40px;
+        align-self: flex-end;
+      }
+      .center-button-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 15vh; /* adjust as needed */
+      }
+      .input__field__button__container {
+        cursor: pointer;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        width: 100px;
+      }
+      .input__field__button {
+        border: 0;
+        background: none;
+        margin: 0;
+        padding: 10px;
+        cursor: pointer;
+        color: #526eff;
+      }
+      svg:not(:root).svg-inline--fa,
+      svg:not(:host).svg-inline--fa {
+        overflow: visible;
+        box-sizing: content-box;
+      }
+      .input__field__container {
+        border: 1px solid #efeff1;
+        border-radius: 7px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        width: 73%;
+        margin: 2px 10px;
+        text-align: left;
+      }
+
+      .svg-inline--fa.fa-xs {
+        vertical-align: 0em;
+      }
+
+      .fa-xs {
+        font-size: 0.75em;
+        line-height: 0.0833333337em;
+        vertical-align: 0.125em;
+      }
+
+      .svg-inline--fa {
+        display: var(--fa-display, inline-block);
+        height: 1em;
+        overflow: visible;
+        vertical-align: -0.125em;
+      }
+
+      .golden-button {
+        background-color: #f47214;
+        box-shadow: 2px 2px 2px #ccc;
+        color: #ffffff;
+        text-align: center;
+        font-size: 20px;
+        padding: 20px;
+        border-radius: 5px;
+        margin: 5px;
+        cursor: pointer;
+        transition: transform 0.5s;
+      }
+      .golden-button:hover {
+        background-color: #ef9a5e;
+        color: black;
+        transform: translateY(5px);
+      }
+
+      @media all and (max-width: 822px) {
+        input:first-child {
+          max-width: 60% !important;
+        }
+        input {
+          max-width: 60%;
+        }
+        form {
+          width: 550px;
+          height: 1050px;
+          /* margin-top: 250px; */
+        }
+        .logo {
+          height: 60px;
+          width: 100px;
+        }
+        #container {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          position: relative;
+          width: 550px;
+          margin-top: calc(-1vw - 100px);
+          padding-top: 70px;
+        }
+        .input-labels {
+          margin: 0px 0px;
+        }
+        .question-mark {
+          width: 30px !important;
+          height: 30px !important;
+        }
+
+        .center-button-container {
+          height: 15vh;
+        }
+
+        .input-labels {
+          display: flex;
+          flex-direction: column;
+          min-width: 100%;
+        }
+
+        .css-ebv3qm span {
+          left: 100px;
+          width: 200px;
+          height: 65px;
+        }
+        .ppp span {
+          width: 258px;
+          top: 200px;
+          left: 300px;
+        }
+
+        .pp1 span {
+          left: 305px;
+          top: 430px;
+        }
+        .pp2 span {
+          left: 305px;
+          top: 660px;
+        }
+        .right {
+          margin-top: 60px;
+        }
+      }
+
+      @media all and (max-width: 577px) {
+        form {
+          width: 430px;
+          height: 1090px;
+          margin-top: 10px;
+        }
+        #container {
+          display: flex;
+          flex-direction: column;
+          width: 430px;
+          margin-top: calc(-1vw - 100px);
+          padding-top: 70px;
+        }
+        .right {
+          margin-top: 0px;
+        }
+
+        .css-ebv3qm span {
+          font-size: 8px;
+          left: 30px;
+          top: 180px;
+          width: 230px;
+          font-size: 12px;
+        }
+        .ppp span {
+          width: 258px;
+          height: 60px;
+          top: 195px;
+          left: 150px;
+        }
+
+        .pp1 span {
+          top: 430px;
+          left: 185px;
+          bottom: 3px;
+          height: 60px;
+        }
+        .pp2 span {
+          left: 185px;
+          top: 660px;
+          height: 60px;
+        }
+      }
+
+      @media all and (max-width: 447px) {
+        form {
+          width: 330px;
+          height: 1090px;
+          margin-top: 10px;
+        }
+        #container {
+          width: 350px;
+        }
+        .ppp span {
+          width: 258px;
+          height: 60px;
+          top: 235px;
+          left: 80px;
+        }
+
+        .pp1 span {
+          top: 470px;
+          left: 85px;
+          bottom: 3px;
+          height: 60px;
+        }
+        .pp2 span {
+          left: 85px;
+          top: 700px;
+          height: 60px;
+        }
+      }
+    </style>
+    <title>Electrode Tip Diameter Calculator</title>
+  </head>
+
+  <body>
+    <div onclick="void(0);">
+      <form name="myform" class="form1">
+        <div
+          id="modal-text"
+          class="disclaimer"
+          style="
+            display: none;
+            font-size: 15px;
+            color: red !important;
+            text-align: center;
+            font-weight: 300;
+          "
+        >
+          <p>Please enter a valid range of Gauge value (10-40)</p>
+        </div>
+        <div
+          id="modal-text2"
+          class="disclaimer"
+          style="
+            display: none;
+            font-size: 15px;
+            color: red !important;
+            text-align: center;
+            font-weight: 300;
+          "
+        >
+          <p>Please enter a lesser value.</p>
+        </div>
+        <h3 id="myhead">Electrode Tip Diameter Calculator</h3>
+        <div class="input-labels">
+          <div class="input-group">
+            <label for="username" class="lab"
+              >First Material Thickness (t1):&nbsp&nbsp
+
+              <div class="css-ebv3qm ppp e1j6iris0">
+                <button
+                  type="button"
+                  class="chakra-button tooltip-button css-17p4kgf"
+                  onmouseover="hover(1)"
+                  onmouseleave="dis(1)"
+                >
+                  <div class="question-mark"></div></button
+                ><span class="blip" id="display1"
+                  >The Thickness of First Material<br />
+                  is that dimension which is<br />
+                  the smallest of all.</span
+                >
+              </div>
+            </label>
+
+            <div class="input__field__container">
+              <div class="input__field__button__container">
+                <button
+                type="button"
+                  class="input__field__button"
+                  id="minus-1"
+                  onclick="stepup(this)"
+                >
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    data-prefix="fas"
+                    data-icon="minus"
+                    class="svg-inline--fa fa-minus fa-xs"
+                    role="img"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <input type="number" id="first"  />
+              <div class="input__field__button__container">
+                <button
+                type="button"
+                  class="input__field__button"
+                  id="plus-1"
+                  onclick="stepup(this)"
+                >
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    data-prefix="fas"
+                    data-icon="plus"
+                    class="svg-inline--fa fa-plus fa-xs"
+                    role="img"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="input-group unit-container">
+            <label for="username">Units</label>
+            <select class="decorated" id="selectunit1">
+              <option value="Metric" selected>Metric</option>
+              <option value="Imperial">Imperial (in Thou)</option>
+              <option value="Gauge">Gauge</option>
+            </select>
+          </div>
+        </div>
+        <div class="input-labels">
+          <div class="input-group">
+            <label for="password"
+              >Second Material Thickness(t2):&nbsp&nbsp
+
+              <div class="css-ebv3qm pp1 e1j6iris0">
+                <button
+                  type="button"
+                  class="chakra-button tooltip-button css-17p4kgf"
+                  onmouseover="hover(2)"
+                  onmouseleave="dis(2)"
+                >
+                  <div class="question-mark"></div></button
+                ><span class="blip" id="display2"
+                  >The Thickness of Second <br />
+                  Material is the minimum<br />
+                  dimension given.</span
+                >
+              </div>
+            </label>
+            <div class="input__field__container">
+              <div class="input__field__button__container">
+                <button
+                type="button"
+                  class="input__field__button"
+                  id="minus-2"
+                  onclick="stepup(this)"
+                >
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    data-prefix="fas"
+                    data-icon="minus"
+                    class="svg-inline--fa fa-minus fa-xs"
+                    role="img"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <input type="number" id="second"  />
+              <div class="input__field__button__container">
+                <button
+                type="button"
+                  class="input__field__button"
+                  id="plus-2"
+                  onclick="stepup(this)"
+                >
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    data-prefix="fas"
+                    data-icon="plus"
+                    class="svg-inline--fa fa-plus fa-xs"
+                    role="img"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="input-group unit-container">
+            <label for="username">Units</label>
+            <select class="decorated" id="selectunit2">
+              <option value="Metric" selected>Metric</option>
+              <option value="Imperial">Imperial (in Thou)</option>
+              <option value="Gauge">Gauge</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-labels">
+          <div class="input-group">
+            <label for="cost"
+              >Electrode Tip Diameter: &nbsp&nbsp
+
+              <div class="css-ebv3qm pp2 e1j6iris0">
+                <button
+                  type="button"
+                  class="chakra-button tooltip-button css-17p4kgf"
+                  onmouseover="hover(3)"
+                  onmouseleave="dis(3)"
+                >
+                  <div class="question-mark"></div></button
+                ><span class="blip" id="display3"
+                  >Electrode Diameter is <br />the Diameter of the <br />
+                  tip of the electrode.</span
+                >
+              </div>
+            </label>
+
+            <div class="input__field__container">
+              <input type="number" id="result" readonly />
+            </div>
+          </div>
+          <div class="input-group unit-container">
+            <label for="username">Units</label>
+            <select class="decorated" id="selectunit3">
+              <option value="Metric" selected>Metric</option>
+              <option value="Imperial">Imperial (in Thou)</option>
+              <option value="Gauge">Gauge</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="dynamic"></div>
+        <div class="center-button-container">
+          <button
+            type="button"
+            onclick="calculate()"
+            id="cal"
+            class="golden-button"
+          >
+            Calculate
+          </button>
+        </div>
+        <div id="container">
+          <div class="left">
+            <img
+              src="https://www.linkpicture.com/q/cropped-TM-Welding-Empire-High-Resolution.webp"
+              type="image"
+              class="logo"
+            />
+          </div>
+          <div class="right">
+            <a href="https://weldingempire.com/" target="_blank" id="link"
+              >weldingempire.com</a
+            >
+          </div>
+        </div>
+      </form>
+    </div>
+    <script>
+      function validate() {
+        if (this.id == "first" || this.id == "selectunit1") {
+          console.log("here");
+          var valueInput = document.getElementById("first");
+          var unit1 = document.getElementById("selectunit1");
+        } else {
+          var valueInput = document.getElementById("second");
+          var unit1 = document.getElementById("selectunit2");
+        }
+
+        var maxVal = Infinity;
+        var enteredVal = parseFloat(valueInput.value);
+
+        switch (unit1.value) {
+          case "Metric":
+            maxVal = 3;
+            if (enteredVal > maxVal) {
+              valueInput.value = maxVal;
+            }
+            break;
+          case "Imperial":
+            maxVal = 118;
+            if (enteredVal > maxVal) {
+              valueInput.value = maxVal;
+            }
+            break;
+          case "Gauge":
+            minVal = 12;
+            maxVal = 40;
+            if (enteredVal < minVal) {
+              valueInput.value = minVal;
+            }
+            if (enteredVal > maxVal) {
+              valueInput.value = maxVal;
+            }
+            break;
+        }
+      }
+
+      document.getElementById("first").addEventListener("change", validate);
+      document.getElementById("second").addEventListener("change", validate);
+       document.getElementById("selectunit1").addEventListener("change" , validate);
+      document.getElementById("selectunit2").addEventListener("change" , validate);
+      // Define a key-value object
+      const myObject = {
+        40: "0.12",
+        39: "0.13",
+        38: "0.15",
+        37: "0.17",
+        36: "0.19",
+        35: "0.21",
+        34: "0.23",
+        33: "0.25",
+        32: "0.27",
+        31: "0.29",
+        30: "0.31",
+        29: "0.34",
+        28: "0.37",
+        27: "0.42",
+        26: "0.45",
+        25: "0.5",
+        24: "0.6",
+        23: "0.7",
+        22: "0.8",
+        21: "0.9",
+        20: "1.0",
+        19: "1.2",
+        18: "1.4",
+        17: "1.6",
+        16: "1.8",
+        15: "2.0",
+        14: "2.3",
+        13: "2.6",
+        12: "2.9",
+        11: "3.2",
+      };
+
+      const sheetSteel = {
+        40: 0.12,
+        39: 0.13,
+        38: 0.15,
+        37: 0.17,
+        36: 0.19,
+        35: 0.21,
+        34: 0.23,
+        33: 0.25,
+        32: 0.27,
+        31: 0.29,
+        30: 0.31,
+        29: 0.34,
+        28: 0.37,
+        27: 0.42,
+        26: 0.45,
+        25: 0.5,
+        24: 0.6,
+        23: 0.7,
+        22: 0.8,
+        21: 0.9,
+        20: 1.0,
+        19: 1.2,
+        18: 1.4,
+        17: 1.6,
+        16: 1.8,
+        15: 2.0,
+        14: 2.3,
+        13: 2.6,
+        12: 2.9,
+        11: 3.2,
+        10: 3.7,
+        9: 4.1,
+        8: 4.5,
+        7: 4.9,
+        6: 5.4,
+        5: 5.9,
+        4: 6.4,
+        3: 7.0,
+        2: 7.6,
+        1: 8.2,
+      };
+
+      function calculate() {
+        var a = parseFloat(document.getElementById("first").value);
+        var b = parseFloat(document.getElementById("second").value);
+        var unit1 = document.getElementById("selectunit1").value;
+        var unit2 = document.getElementById("selectunit2").value;
+        var result_unit = document.getElementById("selectunit3").value;
+
+        console.log(a, b, result, unit1, unit2, result_unit);
+        if (isNaN(a)) {
+          a = 0;
+        }
+        if (isNaN(b)) {
+          b = 0;
+        }
+        if (unit1 === "Imperial") {
+          a *= 0.0254;
+
+          if (a > 3) {
+            document.getElementById("modal-text2").style.display = "block";
+            document.getElementById("first").value = "";
+            timeout = setTimeout(function () {
+              document.getElementById("modal-text2").style.display = "none";
+            }, 3000);
+          }
+        } else if (unit1 === "Gauge") {
+          if (myObject.hasOwnProperty(a)) {
+            // If there is a match, assign the value to a variable
+            const outputValue = myObject[a];
+            console.log(outputValue);
+            // Output the value to the console
+            a = parseFloat(outputValue);
+          } else {
+            document.getElementById("modal-text").style.display = "block";
+            document.getElementById("first").value = "";
+            timeout = setTimeout(function () {
+              document.getElementById("modal-text").style.display = "none";
+            }, 3000);
+          }
+        }
+        if (unit2 === "Imperial") {
+          b *= 0.0254;
+          if (b > 3) {
+            document.getElementById("modal-text2").style.display = "block";
+            document.getElementById("second").value = "";
+            timeout = setTimeout(function () {
+              document.getElementById("modal-text2").style.display = "none";
+            }, 3000);
+          }
+        } else if (unit2 === "Gauge") {
+          if (myObject.hasOwnProperty(b)) {
+            // If there is a match, assign the value to a variable
+            const outputValue = myObject[b];
+            console.log(outputValue);
+            // Output the value to the console
+            b = parseFloat(outputValue);
+          } else {
+            document.getElementById("modal-text").style.display = "block";
+            document.getElementById("second").value = "";
+            timeout = setTimeout(function () {
+              document.getElementById("modal-text").style.display = "none";
+            }, 3000);
+          }
+        }
+
+        var final = 2.54 + (a + b);
+        console.log(final);
+
+        if (result_unit === "Imperial") {
+          final /= 0.0254;
+        } else if (result_unit === "Gauge") {
+          let matchingKey = null;
+          for (let key = 40; key >= 1; key--) {
+            if (final <= sheetSteel[key]) {
+              matchingKey = key;
+              break;
+            }
+          }
+          if (matchingKey) {
+            final = matchingKey;
+          } else {
+            alert("Invalid range of gauge. Please change input values.");
+          }
+
+          console.log(final);
+        }
+
+        document.getElementById("result").value = final;
+        console.log(2.54 + (a + b));
+      }
+
+      function clean(p) {
+        p.value = "";
+      }
+
+      function stepup(elem) {
+        if (elem.id == "minus-1")
+         {
+          var unit1 = document.getElementById("selectunit1").value;
+          let p = Number(document.getElementById("first").value);
+
+          if(unit1 == "Metric"){
+            p = p - 0.1;
+          }
+          else if (unit1 == "Imperial"){
+            p = p - 5;
+          }
+          else if(unit1 == "Gauge"){
+            p = p - 1;
+          }
+          // console.log(Number(p))
+
+          document.getElementById("first").value = (p).toFixed(2);
+          
+        }
+         else if (elem.id == "plus-1")
+          {
+
+          var unit1 = document.getElementById("selectunit1").value;
+          let p = Number(document.getElementById("first").value);
+
+          if(unit1 == "Metric"){
+            p = p + 0.1;
+          }
+          else if (unit1 == "Imperial"){
+            p = p + 5;
+          }
+          else if(unit1 == "Gauge"){
+            p = p + 1;
+          }
+          document.getElementById("first").value =(p).toFixed(2);
+        
+        }
+
+         else if (elem.id == "minus-2") 
+         {
+let unit2 = document.getElementById("selectunit2").value;
+          let p = Number(document.getElementById("second").value);
+
+          if(unit2 == "Metric"){
+            p = p - 0.1;
+          }
+          else if (unit2 == "Imperial"){
+            p = p - 5;
+          }
+          else if(unit2 == "Gauge"){
+            p = p - 1;
+          }
+          document.getElementById("second").value = (p).toFixed(2);
+          
+        } 
+        else if (elem.id == "plus-2")
+         {
+          let unit2 = document.getElementById("selectunit2").value;
+          let p = Number(document.getElementById("second").value);
+
+      console.log(p , unit2);
+          if(unit2 == "Metric"){
+            p = p + 0.1;
+          }
+          else if (unit2 == "Imperial"){
+            p = p + 5;
+          }
+          else if(unit2 == "Gauge"){
+            p = p + 1;
+          }
+          console.log(p);
+          document.getElementById("second").value = (p).toFixed(2);
+       
+        }
+      }
+
+      function hover(n) {
+        if (n == 1) {
+          document.getElementById("display1").style.display = "block";
+        }
+        if (n == 2) {
+          document.getElementById("display2").style.display = "block";
+        }
+        if (n == 3) {
+          document.getElementById("display3").style.display = "block";
+        }
+      }
+      function dis(n) {
+        if (n == 1) {
+          document.getElementById("display1").style.display = "none";
+        }
+        if (n == 2) {
+          document.getElementById("display2").style.display = "none";
+        }
+        if (n == 3) {
+          document.getElementById("display3").style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
