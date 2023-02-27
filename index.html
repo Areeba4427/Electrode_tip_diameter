@@ -949,7 +949,7 @@ p{
         6: 5.4,
         5: 5.9,
         4: 6.4,
-        3: 7.0,
+        3: 7.0, 
         2: 7.6,
         1: 8.2,
         0: 8.8
@@ -1067,7 +1067,7 @@ p{
           // console.log(Number(p))
 
           document.getElementById("first").value = (p).toFixed(2);
-          
+          validate();
         }
          else if (elem.id == "plus-1")
           {
@@ -1085,7 +1085,7 @@ p{
             p = p + 1;
           }
           document.getElementById("first").value =(p).toFixed(2);
-        
+          validate();
         }
 
          else if (elem.id == "minus-2") 
@@ -1103,7 +1103,7 @@ let unit2 = document.getElementById("selectunit2").value;
             p = p - 1;
           }
           document.getElementById("second").value = (p).toFixed(2);
-          
+          validate();
         } 
         else if (elem.id == "plus-2")
          {
@@ -1122,7 +1122,7 @@ let unit2 = document.getElementById("selectunit2").value;
           }
           console.log(p);
           document.getElementById("second").value = (p).toFixed(2);
-       
+          validate();
         }
       }
 
