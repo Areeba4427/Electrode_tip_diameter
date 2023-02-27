@@ -952,6 +952,7 @@ p{
         3: 7.0,
         2: 7.6,
         1: 8.2,
+        0: 8.8
       };
 
       function calculate() {
@@ -1025,7 +1026,7 @@ p{
           final /= 0.0254;
         } else if (result_unit === "Gauge") {
           let matchingKey = null;
-          for (let key = 40; key >= 1; key--) {
+          for (let key = 40; key >= 0; key--) {
             if (final <= sheetSteel[key]) {
               matchingKey = key;
               break;
